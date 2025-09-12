@@ -15,7 +15,7 @@ int main() {
             perror("write");
             printf ("errno=%d\n", errno);
         }
-        close (1);
+        close (l);
     }
     else{
         perror("creat");

@@ -9,5 +9,5 @@
 int main() {
     write (1, "*", 1);
     fork();
-    write (1, "“*", 1);
+    write (1, "*", 1);
 }
