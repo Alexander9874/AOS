@@ -1,3 +1,4 @@
+// a31.c
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
@@ -8,26 +9,18 @@
 
 int main() {
     int l;
-    printf ("My nice is %d\n", nice(0));
-    nice (5);
-    printf ("My nice is %d\n", nice(0));
-    nice (5);
-    printf ("My nice is %d\n", nice(0));
-    nice(5);
-    printf ("My nice is %d\n", nice(0));
+    printf("My nice is %d\n", nice(0));
     nice(5);
     printf("My nice is %d\n", nice(0));
-    l=nice(-5);
-    if (1==-1) perror("nice");
+    nice(5);
+    printf("My nice is %d\n", nice(0));
+    nice(5);
+    printf("My nice is %d\n", nice(0));
+    nice(5);
+    printf("My nice is %d\n", nice(0));
+    l = nice(-5);
+    if (l == -1)
+        perror("nice");
     printf("My nice is %d\n", nice(0));
     exit(0);
 }
-
-
-
-
-
-
-
-
-

@@ -1,3 +1,4 @@
+// a17.c
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
@@ -11,8 +12,10 @@ int main() {
     char buf[10];
     sprintf(buf, ".tmp%d", getpid());
     close(creat (buf, 0600));
-    l=fork();
-    if (unlink(buf)!=-1)
-        write(1, l?"#":"*", 1);
+    l = fork();
+    if (unlink(buf) != -1)
+        // # - parent first
+        // * - child first
+        write(1, l ? "#" : "*", 1);
     exit(0);
 }

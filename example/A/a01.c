@@ -1,3 +1,4 @@
+// a01.c
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
@@ -7,37 +8,37 @@
 
 int main() {
     int l, i;
-    l=creat("a.txt", 0);
-    printf ("l=%d\n", l);
-    if (l>=0) {
-        i=write(l, "test1\n", 6);
+    l = creat("a.txt", 0);
+    printf("l=%d\n", l);
+    if (l >= 0) {
+        i = write(l, "test1\n", 6);
         if (i<0) {
             perror("write");
-            printf ("errno=%d\n", errno);
+            printf("errno=%d\n", errno);
         }
-        close (l);
+        close(l);
     }
-    else{
+    else {
         perror("creat");
-        printf ("errno=%d\n", errno);
+        printf("errno=%d\n", errno);
         exit(1);
     }
-    l=creat("a.txt", 0);
-    printf ("l=%d\n", l);
-    if (l>=0){
-        i=write(1, "“test1\n", 6);
-        if (i<0){
-            perror ("write");
-            printf ("errno=%d\n", errno);
+    l = creat("a.txt", 0);
+    printf("l=%d\n", l);
+    if (l >= 0){
+        i = write(1, "test1\n", 6);
+        if (i < 0){
+            perror("write");
+            printf("errno=%d\n", errno);
         }
-        close (l);
+        close(l);
     }
-    else{
+    else {
         perror("creat");
-        printf ("errno=%d\n", errno);
+        printf("errno=%d\n", errno);
     }
-    errno=9;
+    // error "Bad file descriptor" (for some reason)
+    errno = 9;
     perror("errno");
     exit(0);
 }
-
