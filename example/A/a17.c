@@ -11,7 +11,7 @@ int main() {
     int l;
     char buf[10];
     sprintf(buf, ".tmp%d", getpid());
-    close(creat (buf, 0600));
+    close(creat(buf, 0600));
     l = fork();
     if (unlink(buf) != -1)
         // # - parent first
