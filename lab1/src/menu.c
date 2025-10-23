@@ -4,7 +4,7 @@
 #include <sys/types.h>
 #include <stdlib.h>
 
-#include "wraper.h"
+#include "wrapper.h"
 
 #define FD_STD_IN  0
 #define FD_STD_OUT 1

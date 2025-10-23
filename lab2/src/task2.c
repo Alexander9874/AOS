@@ -2,7 +2,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-#include "wraper.h"
+#include "wrapper.h"
 
 int main() {
     int ret_val;

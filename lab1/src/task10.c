@@ -3,7 +3,7 @@
 #include <fcntl.h>
 #include <stdlib.h>
 
-#include "wraper.h"
+#include "wrapper.h"
 
 int main(int argc, char ** argv) {
     int fout, fin;

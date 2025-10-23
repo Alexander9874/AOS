@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#include "wraper.h"
+#include "wrapper.h"
 
 const char *const red = "\033[31m";
 const char *const reset = "\033[0m";

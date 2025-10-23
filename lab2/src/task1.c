@@ -6,7 +6,7 @@
 #include <sys/types.h>
 #include <fcntl.h>
 
-#include "wraper.h"
+#include "wrapper.h"
 
 extern char ** environ;
 

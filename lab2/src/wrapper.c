@@ -1,10 +1,11 @@
-// wraper.c
+// wrapper.c
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdarg.h>
 #include <sys/types.h>
+#include <sys/wait.h>
 
 void _close(int fd) {
     if (close(fd)) {
@@ -17,9 +18,18 @@ void _close(int fd) {
 int _open(const char * const fname, int fmode, ...) {
     va_list arg_ptr;
     va_start(arg_ptr, fmode);
-    int fd = open(fname, fmode, arg_ptr);
+    
+    int fd;
+    if (fmode & O_CREAT) {
+        mode_t mode = va_arg(arg_ptr, mode_t);
+        fd = open(fname, fmode, mode);
+    } else {
+        fd = open(fname, fmode);
+    }
+    
     va_end(arg_ptr);
-    if (fd  == -1) {
+    
+    if (fd == -1) {
         perror("open");
         exit(1);
     }
@@ -100,7 +110,7 @@ void rw_b(const int fin, const int fout) {
         exit(0);
     }
     return;
-}        
+}
 
 int _create(const char * const fname, mode_t fmode) {
     int fd = creat(fname, fmode);
@@ -109,4 +119,48 @@ int _create(const char * const fname, mode_t fmode) {
         exit(1);
     }
     return fd;
+}
+
+// void _putenv(const char * const string) {
+void _putenv(char * string) {
+    if (putenv(string)) {
+        perror("putenv");
+        exit(1);
+    }
+    return;
+}
+
+pid_t _fork() {
+    pid_t ret = fork();
+    if (ret < 0) {
+        perror("fork");
+        exit(1);
+    }
+    return ret;
+}
+
+pid_t _wait(int * ret_code) {
+    pid_t ret = wait(ret_code);
+    if (ret < 0) {
+        perror("wait");
+        exit(1);
+    }
+    return ret;
+}
+
+void rw_small_buf(const int fin, const int fout) {
+    int ret_code;
+    char buf[8];
+    while ((ret_code = read(fin, buf, 8)) > 0) {
+        ret_code = write(fout, buf, ret_code);
+        if (ret_code == -1) {
+            perror("write");
+            exit(1);
+        }
+    }
+    if (ret_code == -1) {
+        perror("read");
+        exit(1);
+    }
+    return;
 }

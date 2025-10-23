@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#include "wraper.h"
+#include "wrapper.h"
 
 int main(int argc, char ** argv) {
     struct stat statbuf;

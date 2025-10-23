@@ -1,6 +1,6 @@
-// wraper.h
-#ifndef WRAPER_HEADER
-#define WRAPER_HEADER
+// wrapper.h
+#ifndef WRAPPER_HEADER
+#define WRAPPER_HEADER
 
 #include <sys/types.h>
 
@@ -33,4 +33,4 @@ extern pid_t _wait(int * ret_code);
 
 extern void rw_small_buf(const int fin, const int fout);
 
-#endif // WRAPER_HEADER
+#endif // WRAPPER_HEADER

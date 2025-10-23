@@ -4,31 +4,12 @@
 #include <unistd.h>
 #include <string.h>
 
-#include "wraper.h"
+#include "wrapper.h"
 
 int main(int argc, char ** argv) {
     pid_t ret_fork, ret_wait;
     int ret_code;
     int task;
-    
-    // size_t task_len;
-    // char * ptr;
-
-    // if (argc != 2) {
-    //     _fprintf(stderr, "Usage: %s task\n",
-    //              argv[0]);
-    //     exit(1);
-    // }
-
-    // task = strtol(argv[1], &ptr, 0);
-    // task_len = (size_t)(ptr - argv[1]);
-    // if (strlen(argv[1]) != task_len ||
-    //            task_len != 1 ||
-    //            task < 3 ||
-    //            task > 6) {
-    //     _fprintf(stderr, "%s: incorrect task\n", argv[1]);
-    //     exit(1);
-    // }
 
     if (argc != 1) {
         _fprintf(stderr, "Usage: %s\n",

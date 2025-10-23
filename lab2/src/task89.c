@@ -5,7 +5,7 @@
 #include <string.h>
 #include <fcntl.h>
 
-#include "wraper.h"
+#include "wrapper.h"
 
 int main(int argc, char ** argv) {
     int task;
